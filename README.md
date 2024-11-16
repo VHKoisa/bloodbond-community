@@ -14,4 +14,4 @@ BloodBond is a dedicated community platform designed to connect blood donors and
 # Microservices
 1. Frontend
 2. Backend
-3. Mongodb Atlas
+3. Mongodb
