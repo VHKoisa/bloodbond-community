@@ -7,8 +7,8 @@ const Donor = () => {
   const [bloodGroup, setBloodGroup] = useState("");
   const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
-  const [selectedDonorId, setSelectedDonorId] = useState(null); // Track selected donor ID
-  const [selectedDonorDetails, setSelectedDonorDetails] = useState(null); // Track selected donor details
+  const [selectedDonorId, setSelectedDonorId] = useState(null);
+  const [selectedDonorDetails, setSelectedDonorDetails] = useState(null);
 
   useEffect(() => {
     fetchDonors();
@@ -20,12 +20,11 @@ const Donor = () => {
       const { data } = await axios.get("http://localhost:3000/api/donors/search", {
         params: filters,
       });
-      console.log(data)
       if (Array.isArray(data)) {
-          setDonors(data);  
-        } else {
-          console.error("API response is not an array", data);
-        }
+        setDonors(data);
+      } else {
+        console.error("API response is not an array", data);
+      }
     } catch (error) {
       console.error("Error fetching donors:", error);
     } finally {
@@ -35,7 +34,7 @@ const Donor = () => {
 
   const fetchDonorDetails = async (id) => {
     if (selectedDonorId === id) {
-      // If the same donor is clicked again, hide their details
+      // If clicked on the same donor, toggle visibility off
       setSelectedDonorId(null);
       setSelectedDonorDetails(null);
       return;
@@ -91,38 +90,54 @@ const Donor = () => {
         <p>Loading...</p>
       ) : (
         <div className="donor-list">
-          <ul>
-            {donors.length > 0 ? (
-              donors.map((donor) => (
-                <React.Fragment key={donor._id}>
-                  <li>
-                    {donor.name} - {donor.bloodGroup} - {donor.location}
-                    <button
-                      className="details-button"
-                      onClick={() => fetchDonorDetails(donor._id)}
-                    >
-                      View Details
-                    </button>
-                  </li>
-                  {selectedDonorId === donor._id && selectedDonorDetails && (
-                    <li className="donor-details">
-                      <div>
-                        <p>Name: {selectedDonorDetails.name}</p>
-                        <p>Blood Group: {selectedDonorDetails.bloodGroup}</p>
-                        <p>Location: {selectedDonorDetails.location}</p>
-                        <p>Address: {selectedDonorDetails.address || "N/A"}</p>
-                        <p>
-                          Contact: {selectedDonorDetails.contactNumber || "N/A"}
-                        </p>
-                      </div>
-                    </li>
-                  )}
-                </React.Fragment>
-              ))
-            ) : (
-              <li>No donors found</li>
-            )}
-          </ul>
+          <table className="donor-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Blood Group</th>
+                <th>Location</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {donors.length > 0 ? (
+                donors.map((donor) => (
+                  <React.Fragment key={donor._id}>
+                    <tr>
+                      <td>{donor.name}</td>
+                      <td>{donor.bloodGroup}</td>
+                      <td>{donor.location}</td>
+                      <td>
+                        <button
+                          className="details-button"
+                          onClick={() => fetchDonorDetails(donor._id)}
+                        >
+                          {selectedDonorId === donor._id ? "Close Details" : "View Details"}
+                        </button>
+                      </td>
+                    </tr>
+                    {selectedDonorId === donor._id && selectedDonorDetails && (
+                      <tr className="donor-details-row">
+                        <td colSpan="4">
+                          <div>
+                            <p><strong>Name:</strong> {selectedDonorDetails.name}</p>
+                            <p><strong>Blood Group:</strong> {selectedDonorDetails.bloodGroup}</p>
+                            <p><strong>Location:</strong> {selectedDonorDetails.location}</p>
+                            <p><strong>Address:</strong> {selectedDonorDetails.address || "N/A"}</p>
+                            <p><strong>Contact:</strong> {selectedDonorDetails.contactNumber || "N/A"}</p>
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </React.Fragment>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4">No donors found</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
       )}
     </div>

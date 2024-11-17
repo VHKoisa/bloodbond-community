@@ -1,85 +1,100 @@
 .donor-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 4rem;
-    margin-bottom: 20px;
-  }
-  
-  .search-filters {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-  }
-  
-  .filter-input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .filter-input label {
-    margin-bottom: 5px;
-  }
-  
-  .filter-input input {
-    padding: 8px;
-    width: 200px;
-    margin-bottom: 10px;
-  }
-  
-  .search-button {
-    padding: 5px 20px;
-    background-color: rgb(127,29,29);
-    color: white;
-    border: 2px solid white;
-    cursor: pointer;
-    height: 3rem;
-    margin-top: 1.8rem;
-    border-radius: 10px;
-  }
-  
-  .search-button:hover {
-    background-color: rgb(127,29,29);
-  }
+  padding: 20px;
+  font-family: "Ubuntu", sans-serif;
+}
 
-  .donor-list ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .donor-list li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    font-size: 1.2rem;
-  }
-  .details-button {
-    background-color: rgb(127,29,29);
-    color: white;
-    border: none;
-    padding: 10px 20px; 
-    margin-left: 50px; 
-    border-radius: 10px; 
-    font-size: 1rem; 
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: all 0.3s ease-in-out; /* Smooth transitions for hover effects */
-  }
-  
-  .details-button:hover {
-    background-color: rgb(127,29,29); /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-  }
-  
-  .details-button:active {
-    background-color: #003d80; /* Even darker blue for active state */
-    transform: translateY(0); /* Reset lift effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow */
-  }
-  
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 3rem;
+}
+
+.search-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filter-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.filter-input label {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.filter-input input {
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.search-button {
+  padding: 8px 15px;
+  background-color:rgb(127,29,29);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  align-self: center;
+  margin-top:2.3rem;
+}
+
+.search-button:hover {
+  background-color: #cc0000;
+}
+
+.donor-table-container {
+  margin-top: 20px;
+}
+
+.donor-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.donor-table th,
+.donor-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.donor-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.donor-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.donor-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.details-button {
+  background-color: rgb(127,29,29);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.details-button:hover {
+  background-color: #cc0000;
+}
+
+.donor-details-row td {
+  background-color: #fef9e7;
+}
