@@ -5,6 +5,7 @@ import yashanki from "../Assets/yashanki.png";
 import hetvi from "../Assets/hetvi.jpeg";
 import vatsal from "../Assets/vatsal.jpeg";
 import jash from "../Assets/jash.jpeg";
+import shrushti from "../Assets/Shrushti.jpeg"
 
 const AboutUs = () => {
   return (
@@ -159,8 +160,8 @@ const AboutUs = () => {
           >
             <div className="h-[60%] w-full bg-white rounded-tr-lg rounded-tl-lg flex justify-center items-center">
               <img
-                src={jash}
-                alt="Shrusti Khonde"
+                src={shrushti}
+                alt="Srushti Khonde"
                 className="h-full w-auto"
               />
             </div>
@@ -168,7 +169,7 @@ const AboutUs = () => {
               className="flex flex-col bg-[url('/src/Assets/heartbeat1.png')] bg-cover bg-center gap-2 mt-3 w-full h-[40%]"
             >
               <h3 className="text-2xl mt-4 ml-0 text-white ubuntu-medium">
-                Shrusti Khonde
+                Srushti Khonde
               </h3>
               <div className="flex flex-row gap-4 text-2xl w-full justify-center">
               <a href=""><i class="fa-brands fa-github"></i></a>

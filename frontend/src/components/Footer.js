@@ -35,12 +35,12 @@ const Footer = () => {
        {/* Column 3 */}
        <div className="flex flex-col gap-4">
         <div>
-          <h1 className="text-red-950 ubuntu-bold" href="#">Navigation</h1>
+          <h1 className="text-red-950 ubuntu-bold">Navigation</h1>
           <div className="h-[2px] w-16 bg-red-900"></div>
         </div>
         <div className="flex flex-col gap-2">
-          <Link className="text-red-900 ubuntu-medium" path="/">Home</Link>
-          <Link className="text-red-900 ubuntu-medium" path="/about">About Us</Link>
+          <Link className="text-red-900 ubuntu-medium" to="/">Home</Link>
+          <Link className="text-red-900 ubuntu-medium" to="/about">About Us</Link>
         </div>
        </div>
        {/* Column 3 ends */}

@@ -60,7 +60,7 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center md:hidden justify-between h-16 shadow-lg">
-        <Link path="/">
+        <Link to="/">
         <img
           src={logo}
           alt="BloodBond_logo"
@@ -73,7 +73,7 @@ const Navbar = () => {
       </div>
       <div className="hidden md:flex justify-between w-full h-20 shadow-lg items-center">
         <div className="flex gap-4 items-center ml-4">
-          <Link path="/"><img src={logo} alt="BloodBond_logo" className="h-24 w-auto" /></Link>
+          <Link to="/"><img src={logo} alt="BloodBond_logo" className="h-24 w-auto" /></Link>
           <ul className="flex gap-7 ubuntu-medium text-red-900 text-base">
             <li className="cursor-pointer">
               <Link to="/">Home</Link>
@@ -154,7 +154,7 @@ const Navbar = () => {
         </div>
         <div>
           <div id="nav-bar" className="flex justify-between -mt-2">
-            <Link path="/" id="brand" className="flex gap-2 items-center">
+            <Link to="/" id="brand" className="flex gap-2 items-center">
               <img
                 className="object-cover w-auto h-20 ml-2"
                 src={logo}
